@@ -1,0 +1,388 @@
+@import url(https://fonts.googleapis.com/earlyaccess/droidarabickufi.css);
+
+:root {
+  --white: #fff;
+  --bg-gradient: rgb(43, 40, 40);
+  --hover-bg: #726f6f;
+  --main-bg: rgba(255,255,255,0.08);
+  --border-clr: rgba(255,255,255,0.3);
+  --header-bg: rgba(255, 196, 0, 0.863);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Droid Arabic Kufi', serif;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--bg-gradient);
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  align-items: center;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: var(--header-bg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  z-index: 99;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logoimage {
+  width: 55px;
+  margin: 5px;
+}
+
+.logotext {
+  font-size: 1em;
+  color: black;
+  margin-left: 10px;
+  user-select: none;
+}
+
+.navi a {
+  font-size: 1.1em;
+  color: black;
+  text-decoration: none;
+  font-weight: 500;
+  margin-left: 40px;
+  position: relative;
+}
+
+.navi a:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background: var(--white);
+  left: 0;
+  bottom: -6px;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s ease, background-color 0.5s ease;
+}
+
+.navi a:hover:after {
+  transform: scaleX(1);
+  transform-origin: left;
+  background-color: black;
+}
+
+.container {
+  display: flex;
+  flex-direction:column;
+  gap: 20px;
+  padding: 80px 20px 20px;
+  width: 1500px;
+}
+
+details {
+  margin-right: 20px;
+  overflow: hidden;
+  
+}
+
+.listone {
+  background: var(--main-bg);
+  border: 2px solid var(--border-clr);
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 0 15px rgba(255,255,255,0.1);
+  transition: background 0.5s ease, transform 0.5s ease, color 0.5s ease;
+}
+
+/* إلغاء تأثير hover العام على listone */
+.listone:hover {
+  background: var(--main-bg);
+  transform: none;
+}
+
+/* إلغاء تأثير hover على summary */
+.listone:hover summary {
+  color: rgb(0, 153, 255);
+  background: none;
+}
+
+/* تأثير hover مخصص فقط للعناصر الداخلية */
+.listone p:hover,
+.listone ul:hover,
+.listone li:hover ,
+.listone img:hover{
+  color: black;
+  background: white;
+  transform: scale(1.03);
+  transition: 0.4s ease;
+}
+.listone li:hover{
+  background: orangered;
+  border-radius: 10px;
+}
+.listone summary {
+  font-size: 1.5em;
+  font-weight: 500;
+  color: rgb(0, 153, 255);
+  cursor: pointer;
+  position: relative;
+  padding-bottom: 10px;
+  transition: color 0.5s ease;
+}
+
+.listone summary::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 8px;
+  height: 8px;
+  transform: translateY(-50%) rotate(45deg);
+  transition: transform 0.3s ease;
+}
+
+/* محتوى التفاصيل القابل للتمدد */
+
+/* عند الفتح: أظهر المحتوى */
+.listone[open] .details-content {
+  max-height:  max-content;
+  opacity: 1;
+  display: flex;
+  gap: 30px;
+    justify-content: center;
+      padding: 10px;
+}
+
+.listone p, .listone ul ,.listone img{
+  margin-top: 10px;
+  text-align: center;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  color: #fffdfd;
+  background: var(--main-bg);
+  border: 2px solid var(--border-clr);
+  border-radius: 15px;
+  padding: 20px;
+  width: 90%;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+  transition: background 0.5s ease, color 0.5s ease;
+}
+.listone img{
+  width: 448px ;
+  height: 600px;
+  border-radius: 40px;
+}
+
+.listone ul {
+  padding-right: 30px;
+  list-style: disc inside;
+}
+
+.listone li {
+  margin-bottom: 5px;
+  transition: color 0.5s ease;
+}
+/* إضافة هذا الكود في نهاية ملف CSS الأصلي */
+  .navi a[href="#"] {
+    background: rgba(100, 98, 98, 0.671);
+    color: white;
+    font-weight: 600;
+    padding: 3px;
+    border-radius: 10px;
+  }
+
+/* تحسينات شريط التصفح للهاتف (بدون مساس بنسخة الحاسوب) */
+@media only screen and (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    background: rgba(255, 196, 0, 0.95);
+    backdrop-filter: blur(5px);
+  }
+
+  .logo {
+    order: 1;
+    padding: 0 15px;
+    margin-bottom: 10px;
+  }
+
+  .navi {
+    order: 2;
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 0 15px 10px;
+    gap: 8px;
+    scrollbar-width: none;
+  }
+
+  .navi::-webkit-scrollbar {
+    display: none;
+  }
+
+  .navi a {
+    font-size: 0.9rem;
+    margin: 0;
+    padding: 10px 20px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 30px;
+    scroll-snap-align: start;
+    flex: 0 0 auto;
+    color: #000;
+    transition: all 0.2s ease;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .navi a:hover {
+    background: rgba(0, 0, 0, 0.15);
+    transform: none;
+  }
+
+  .navi a:after {
+    display: none;
+  }
+
+  .navi a[href="#"] {
+    background: #007bff;
+    color: white;
+    font-weight: 600;
+  }
+
+  /* تحسينات الأداء */
+  .logoimage {
+    width: 40px;
+    height: 40px;
+    transition: none;
+  }
+
+  .logotext {
+    font-size: 0.85rem;
+  }
+}
+
+/* تحسينات إضافية للهواتف الصغيرة */
+@media only screen and (max-width: 480px) {
+  .navi a {
+    font-size: 0.85rem;
+    padding: 8px 15px;
+  }
+
+  .logo {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .logotext {
+    margin-left: 0;
+    margin-top: 5px;
+  }
+}
+
+    .lower-details {
+        background: rgba(255, 255, 255, 0.05) !important;
+        border: 2px solid rgba(255, 255, 255, 0.15) !important;
+        margin-top: 1.5rem;
+    }
+
+    .lower-details .details-content {
+        display: flex !important;
+        flex-direction: column !important; /* الترتيب العمودي */
+        gap: 20px !important;
+        padding: 1rem !important;
+    }
+
+    .lower-details p {
+        width: 100% !important; /* عرض كامل */
+        margin: 0 !important;
+        padding: 1rem !important;
+        background: var(--main-bg);
+    }
+
+    @media (max-width: 768px) {
+        .lower-details .details-content {
+            padding: 0.5rem !important;
+        }
+        
+        .lower-details p {
+            font-size: 0.9em !important;
+            padding: 0.8rem !important;
+        }
+    }
+
+.dropdown {
+  margin-left: 40px;
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  background: none;
+  color: black;
+  font-family: 'Droid Arabic Kufi', serif;
+  padding: 16px;
+  font-size: 1.1em;
+  font-weight: 600;
+  border: none;
+}
+
+.dropdown-content {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  top: calc(100% + 10px); /* مسافة بين الزر والقائمة */
+  left: 50%;
+  transform: translateX(-50%) translateY(-10px); /* تأثير الانزلاق للأعلى */
+  transition: all 0.3s ease;
+  background-color: rgba(255,255,255,0.1);
+  min-width: 120px;
+  text-align: center;
+  border-radius: 20px;
+  border: white 2px solid;
+  width: fit-content;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: rgba(255,255,255,0.1);
+}
+
+.dropdown:hover .dropdown-content {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.dropdown:hover .dropbtn {
+  transform: scale(1.07);
+  color: white;
+  background: #0000003a;
+  border-radius: 20px;
+}

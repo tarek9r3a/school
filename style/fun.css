@@ -1,0 +1,467 @@
+/* الخطوط والألوان الأساسية */
+@import url("https://fonts.googleapis.com/earlyaccess/droidarabickufi.css");
+@import url('https://fonts.googleapis.com/css2?family=Cal+Sans&display=swap');
+
+:root {
+  --white: #fff;
+  --bg-gradient: rgb(43, 40, 40);
+  --hover-bg: #726f6f;
+  --main-bg: rgba(255,255,255,0.08);
+  --border-clr: rgba(255,255,255,0.3);
+  --header-bg: rgba(255, 196, 0, 0.863);
+  --primary-color: #007bff;
+  --secondary-color: #00ff88;
+  --error-color: #ff3333;
+}
+
+/* إعادة الضبط الأساسية */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Droid Arabic Kufi', serif;
+}
+
+/* خلفية الصفحة والنجوم */
+body {
+  min-height: 100vh;
+  background: var(--bg-gradient);
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  align-items: center;
+  color: var(--white);
+}
+
+/* النجوم المتحركة */
+.stars {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: transparent;
+}
+
+.stars:first-child {
+  animation: animStar 50s linear infinite;
+}
+
+.stars:nth-child(2) {
+  animation: animStar 100s linear infinite;
+}
+
+.stars:nth-child(3) {
+  animation: animStar 150s linear infinite;
+}
+
+@keyframes animStar {
+  from { transform: translateY(0); }
+  to { transform: translateY(-1000px); }
+}
+
+/* النيازك */
+.shooting-star {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 4px;
+  background: #fff;
+  border-radius: 50%;
+  z-index: -1;
+  opacity: 0;
+}
+
+.shooting-star:first-child {
+  animation: shoot 8s linear infinite;
+}
+
+.shooting-star:nth-child(2) {
+  animation: shoot 15s linear infinite;
+  animation-delay: 3s;
+}
+
+.shooting-star:nth-child(3) {
+  animation: shoot 12s linear infinite;
+  animation-delay: 6s;
+}
+
+@keyframes shoot {
+  0% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(1000px, 500px);
+    opacity: 0;
+  }
+}
+
+/* شريط التنقل العلوي */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: var(--header-bg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 20px;
+  z-index: 99;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logoimage {
+  width: 55px;
+  margin: 5px;
+}
+
+.logotext {
+  font-size: 1em;
+  color: black;
+  margin-left: 10px;
+  user-select: none;
+}
+
+.navi a {
+  font-size: 1.1em;
+  color: black;
+  text-decoration: none;
+  font-weight: 500;
+  margin-left: 40px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.navi a:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background: var(--white);
+  left: 0;
+  bottom: -6px;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s ease, background-color 0.5s ease;
+}
+
+.navi a:hover:after {
+  transform: scaleX(1);
+  transform-origin: left;
+  background-color: black;
+}
+  .navi a[href="#"] {
+    background: rgba(100, 98, 98, 0.671);
+    color: white;
+    font-weight: 600;
+    padding: 3px;
+    border-radius: 10px;
+  }
+
+/* المحتوى الرئيسي */
+.main-content {
+  width: 100%;
+  height: 100vh;  /* التأكد من أن المحتوى يحتل المساحة الكاملة للعرض */
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  align-items: center;  /* توسيط عمودي */
+  justify-content: center;  /* توسيط أفقي */
+  gap: 60px;
+  flex-wrap: wrap;
+}
+.item:nth-child(2) {
+  flex-grow: 1;
+  min-width: 300px;
+}
+
+.input-container {
+  display: flex;
+  gap: 15px;
+  flex-direction: column;
+  align-items: center;  /* توسيط أفقي */
+  justify-content: center;  /* توسيط عمودي */
+  height: 100%;  /* التأكد من أن الـ container يملأ المساحة عموديًا */
+}
+
+.input-container input {
+  border: none;
+  border-radius: 40px;
+  border-bottom: var(--primary-color) 2px solid;
+  background: transparent;
+  color: white;
+  font-size: 15px;
+  height: 50px;
+  padding: 0 15px;
+  width: 400px;
+  min-width: 300px;
+  direction: ltr;
+  transition: all 0.3s ease;
+}
+
+.input-container input:focus {
+  outline: none;
+  box-shadow: 0 0 10px rgba(0, 153, 255, 0.5);
+}
+
+.input-container input::placeholder {
+  text-align: center;
+  direction: ltr;
+  color: #aaa;
+}
+
+.input-container button {
+  border-radius: 30px;
+  width: 170px;
+  height: 50px;
+  background: var(--primary-color);
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: white;
+  box-shadow: 0 0 20px rgba(255,255,255,0.1);
+  transition: all 0.3s ease;
+}
+
+.input-container button:hover {
+  transform: scale(1.05);
+  background: orangered;
+}
+
+.graph-wrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: row;
+  gap: 100px;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+@media (min-width: 992px) {
+  .graph-wrapper {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+.graph-container {
+  flex: 1;
+  min-width: 0;
+  background: #2c2c2c;
+  border: 3px solid #007bff;
+  border-radius: 15px;
+  padding: 15px;
+display: flex;
+justify-content: center;
+  box-shadow: 0 0 25px rgba(0, 123, 255, 0.3);
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1/1; 
+  max-height: 70vh;
+    box-sizing: border-box;
+
+}
+
+#graph {
+  width: calc(110% - 30px); /* لأن padding = 15px من كل جهة */
+  height: calc(100% - 30px);
+  min-height: 400px; 
+}
+
+@media (max-width: 768px) {
+  .graph-container {
+    aspect-ratio: 1/1; 
+    max-height: 50vh;
+  }
+}
+.functions-sidebar {
+  flex: 1;
+  min-width: 280px;
+  max-width: 400px;
+}
+
+.functions-sidebar h3 {
+  color: var(--white);
+  text-align: center;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #444;
+  font-size: 1.3em;
+}
+
+#functions-list {
+  list-style: none;
+  padding: 20px;
+  direction: ltr;
+  margin: 0;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+#functions-list::-webkit-scrollbar {
+  width: 6px;
+  direction:ltr;
+  
+}
+
+#functions-list::-webkit-scrollbar-track {
+  background: rgba(255,255,255,0.1);
+  border-radius: 3px;
+    direction:ltr;
+
+}
+
+#functions-list::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 3px;
+    direction:ltr;
+
+}
+
+#functions-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px  12px;
+  margin-bottom: 10px;
+
+  background: rgba(255, 255, 255, 0.1);
+  min-width: fit-content;
+  max-width: 400px;
+  border-radius: 8px;
+  direction:ltr;
+  color: var(--white);
+  transition: all 0.3s ease;
+}
+
+#functions-list li:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.function-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  min-width: 0;
+}
+
+.color-box {
+  width: 16px;
+  height: 16px;
+  border-radius: 5px;
+  flex-shrink: 0;
+  margin-right: 10px;
+}
+
+.function-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 0.9em;
+}
+
+.delete-btn {
+  background:transparent;
+  color: white;
+  border: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+  font-size: 30px;
+}
+
+.delete-btn:hover {
+  color: #ff0000;
+  transform: scale(1.1);
+}
+
+/* تأثيرات الحركة */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.functions-sidebar, .graph-container {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+
+.dropdown {
+  margin-left: 40px;
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  background: none;
+  color: black;
+  font-family: 'Droid Arabic Kufi', serif;
+  padding: 16px;
+  font-size: 1.1em;
+  font-weight: 600;
+  border: none;
+}
+
+.dropdown-content {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  top: calc(100% + 10px); /* مسافة بين الزر والقائمة */
+  left: 50%;
+  transform: translateX(-50%) translateY(-10px); /* تأثير الانزلاق للأعلى */
+  transition: all 0.3s ease;
+  background-color: rgba(255,255,255,0.1);
+  min-width: 120px;
+  text-align: center;
+  border-radius: 20px;
+  border: white 2px solid;
+  width: fit-content;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: rgba(255,255,255,0.1);
+}
+
+.dropdown:hover .dropdown-content {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.dropdown:hover .dropbtn {
+  transform: scale(1.07);
+  color: white;
+  background: #0000003a;
+  border-radius: 20px;
+}

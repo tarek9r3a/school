@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>بحث عن الرياضيات</title>
+  <link rel="icon" type="image/png" href="/attchments/web_icon.png">
+  <link rel="stylesheet" href="../style/cal.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/earlyaccess/droidarabickufi.css' rel='stylesheet'>
+  <link href="https://fonts.googleapis.com/css2?family=Cal+Sans&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjs@12.4.1/lib/browser/math.min.js"></script> <!-- هذا السطر مهم -->
+
+</head>
+<body>
+
+  <header>
+    <a href="../html/idnex.html" class="logo">
+      <img class="logoimage" src="../attchments/icoo.png" alt="Logo">
+      <h5 class="logotext">ثانوية محمد<br>لامين دباغين</h5>
+    </a>
+    <nav class="navi">
+      <a href="./idnex.html"><strong>الأساسية</strong></a>
+      <a href="./sci.html"><strong>علومها</strong></a>
+      <a href="./minds.html"><strong>اهم العلماء</strong></a>
+    </nav>
+        <div class="tools">  
+<div class="dropdown">
+  <button class="dropbtn">الادوات!</button>
+  <div class="dropdown-content">
+    <a href="./fun.html">رسام الدوال</a>
+    <a href="#">الة حاسبة علمية</a>
+  </div>
+</div>
+    </div>
+
+  </header>
+
+  <main class="main-content">
+      <div class="item">
+        <div class="calculator">
+          <input type="text" id="display" disabled placeholder="النتيجة"/>
+          <div class="buttons" dir="rtl">
+<button class="m-b" id="degBtn" onclick="setMode('deg')">Deg</button>
+<button class="m-b" id="radBtn" onclick="setMode('rad')">Rad</button>
+            <button class="m-b" onclick="append('tan(')">tan</button>
+            <button class="m-b" onclick="append('cos(')">cos</button>
+            <button class="m-b" onclick="append('sin(')">sin</button>
+
+            <button class="m-b" onclick="append('inv(')">inv</button>
+            <button class="m-b" onclick="append('(')">(</button>
+            <button class="m-b" onclick="append(')')">)</button>
+            <button class="m-b" onclick="append('ln(')">ln</button>
+            <button class="m-b" onclick="append('log(')">log</button>
+
+            <button class="m-b" onclick="append('/')">÷</button>
+            <button class="m-b" onclick="clearDisplay()"><i class='bx bxs-tag-x'></i></button>
+            <button class="m-b" onclick="append('%')">%</button>
+            <button class="m-b" onclick="clearDisplay()">AC</button>
+            <button class="m-b" onclick="append('!')">!</button>
+
+            <button class="m-b" onclick="append('*')">×</button>
+            <button class="m-b" onclick="append('9')">9</button>
+            <button class="m-b" onclick="append('8')">8</button>
+            <button class="m-b" onclick="append('7')">7</button>
+            <button class="m-b" onclick="append('^')">^</button>
+
+            <button class="m-b" onclick="append('-')">-</button>
+            <button class="m-b" onclick="append('6')">6</button>
+            <button class="m-b" onclick="append('5')">5</button>
+            <button class="m-b" onclick="append('4')">4</button>
+            <button class="m-b" onclick="append('sqrt(')">√</button>
+
+            <button class="m-b" onclick="append('+')">+</button>
+            <button class="m-b" onclick="append('3')">3</button>
+            <button class="m-b" onclick="append('2')">2</button>
+            <button class="m-b" onclick="append('1')">1</button>
+            <button class="m-b" onclick="append('pi')">π</button>
+
+            <button class="m-b" onclick="calculate()">=</button>
+            <button class="m-b" onclick="append('.')">.</button>
+            <button class="m-b" onclick="append('0')">0</button>
+            <button class="m-b" onclick="append('00')">00</button>
+            <button class="m-b" onclick="append('e')">e</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- خط الفاصل بين الآلة الحاسبة وسجل الحسابات -->
+      <div class="separator"></div>
+
+      <div class="item">
+        <div class="history">
+          <h3 dir="rtl">سجل الحسابات:</h3>
+          <ul id="historyList"></ul>
+        </div>
+      </div>
+  </main>
+
+
+  <script src="../scripts/cal.js"></script>
+</body>
+</html>
