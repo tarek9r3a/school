@@ -120,6 +120,8 @@ function updateFunctionsList() {
         const funcText = document.createElement('span');
         funcText.className = 'function-text';
         funcText.textContent = `y = ${func.equation}`;
+        funcText.style.fontFamily ="'Cal Sans', sans-serif";
+        funcText.style.fontSize = "24px"
         
         // زر الحذف
         const deleteBtn = document.createElement('button');
@@ -231,6 +233,7 @@ function getLayout() {
             family:'droid arabic kufi' 
 
 }},
+        showlegend: false,
         
         paper_bgcolor: '#2c2c2c',
         plot_bgcolor: '#2c2c2c',

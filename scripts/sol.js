@@ -114,8 +114,8 @@ function solveSecondDegree() {
         } else {
             const x = -adjC / b;
             result.innerHTML = `
-                <p>الحل: \\( x ${op} ${formatFraction(-adjC, b)} \\)</p>
-                <p>القيمة العشرية: \\( ${x.toFixed(4)} \\)</p>
+                <p>الحل: \( ${x.toFixed(2)} \\</p>
+                 \
             `;
             solutions = [x];
         }
@@ -188,7 +188,7 @@ function solveThirdDegree() {
         solutions = [x1, x2];
         resultText = `
             <p>حلول حقيقية متكررة:</p>
-            <p> \\( ${x1.toFixed(2)} , ${x2.toFixed(2)} \\)</p>
+            <p> \\( ${x1.toFixed(4)} , ${x2.toFixed(4)} \\)</p>
         `;
     } else {
         const r = Math.sqrt(-p / 3);
