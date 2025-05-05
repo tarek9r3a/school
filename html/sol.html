@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>بحث عن الرياضيات</title>
+  <link rel="icon" type="image/png" href="/attchments/web_icon.png">
+  <link rel="stylesheet" href="../style/sol.css">
+      <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.7.0/math.min.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/earlyaccess/droidarabickufi.css' rel='stylesheet'>
+  <link href="https://fonts.googleapis.com/css2?family=Cal+Sans&display=swap" rel="stylesheet">
+
+</head>
+<body>
+  <header>
+    <a href="../html/end.html" class="logo">
+      <img class="logoimage" src="../attchments/icoo.png" alt="Logo">
+      <h5 class="logotext">ثانوية محمد<br>لامين دباغين</h5>
+    </a>
+    <nav class="navi">
+      <a href="./idnex.html"><strong>الأساسية</strong></a>
+      <a href="./sci.html"><strong>علومها</strong></a>
+      <a href="./minds.html"><strong>اهم العلماء</strong></a>
+    </nav>
+    <div class="tools">
+      <div class="dropdown">
+        <button class="dropbtn">الادوات!</button>
+        <div class="dropdown-content">
+          <a href="./fun.html">رسام الدوال</a>
+          <a href="./cal.html">الة حاسبة علمية</a>
+          <a href="./in.html">رسام الاشعة</a>
+                    <a href="./in.html">حلال المعادلات</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+    <div class="main-wrapper">
+        <div class="content-container">
+            <div class="input-section">
+                <div class="input-container">
+                    <div class="equation-tabs">
+                        <button class="tab-btn active" data-tab="first">الدرجة الأولى</button>
+                        <button class="tab-btn" data-tab="second">الدرجة الثانية</button>
+                        <button class="tab-btn" data-tab="third">الدرجة الثالثة</button>
+                    </div>
+
+                    <!-- معادلة الدرجة الأولى -->
+                    <div id="first-tab" class="tab-content active">
+                        <div class="equation-form">
+                            <h3>حل معادلة من الدرجة الأولى</h3>
+                            <div class="equation-row">
+                                <input type="number" id="a1" class="coeff-input" placeholder="a">
+                                <span>x +</span>
+                                <input type="number" id="b1" class="coeff-input" placeholder="b">
+                                <select id="eq-op1" class="equals-select">
+                                    <option value="=">=</option>
+                                    <option value="<">&lt;</option>
+                                    <option value=">">&gt;</option>
+                                    <option value="≤">≤</option>
+                                    <option value="≥">≥</option>
+                                </select>
+                                <input type="number" id="c1" class="equals-value" placeholder="0">
+                            </div>
+                            <button class="solve-btn" onclick="solveFirstDegree()">حل المعادلة</button>
+                            <div id="result1" class="results" style="display: none;">
+                                <h3>نتائج الحل:</h3>
+                                <div id="solution1" class="solution"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- معادلة الدرجة الثانية -->
+                    <div id="second-tab" class="tab-content">
+                        <div class="equation-form">
+                            <h3>حل معادلة من الدرجة الثانية</h3>
+                            <div class="equation-row">
+                                <input type="number" id="a2" class="coeff-input" placeholder="a">
+                                <span>x² +</span>
+                                <input type="number" id="b2" class="coeff-input" placeholder="b">
+                                <span>x +</span>
+                                <input type="number" id="c2" class="coeff-input" placeholder="c">
+                                <select id="eq-op2" class="equals-select">
+                                    <option value="=">=</option>
+                                    <option value="<">&lt;</option>
+                                    <option value=">">&gt;</option>
+                                    <option value="≤">≤</option>
+                                    <option value="≥">≥</option>
+                                </select>
+                                <input type="number" id="d2" class="equals-value" placeholder="0">
+                            </div>
+                            <button class="solve-btn" onclick="solveSecondDegree()">حل المعادلة</button>
+                            <div id="result2" class="results" style="display: none;">
+                                <h3>نتائج الحل:</h3>
+                                <div id="solution2" class="solution"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- معادلة الدرجة الثالثة -->
+                    <div id="third-tab" class="tab-content">
+                        <div class="equation-form">
+                            <h3>حل معادلة من الدرجة الثالثة</h3>
+                            <div class="equation-row">
+                                <input type="number" id="a3" class="coeff-input" placeholder="a">
+                                <span>x³ +</span>
+                                <input type="number" id="b3" class="coeff-input" placeholder="b">
+                                <span>x² +</span>
+                                <input type="number" id="c3" class="coeff-input" placeholder="c">
+                                <span>x +</span>
+                                <input type="number" id="d3" class="coeff-input" placeholder="d">
+                                <select id="eq-op3" class="equals-select">
+                                    <option value="=">=</option>
+                                    <option value="<">&lt;</option>
+                                    <option value=">">&gt;</option>
+                                    <option value="≤">≤</option>
+                                    <option value="≥">≥</option>
+                                </select>
+                                <input type="number" id="e3" class="equals-value" placeholder="0">
+                            </div>
+                            <button class="solve-btn" onclick="solveThirdDegree()">حل المعادلة</button>
+                            <div id="result3" class="results" style="display: none;">
+                                <h3>نتائج الحل:</h3>
+                                <div id="solution3" class="solution"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="graph-section">
+                <div class="graph-container">
+                    <div id="graph"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../scripts/sol.js">
+        // تبديل التبويبات
+    </script>
+    
+    <!-- MathJax لعرض الرموز الرياضية -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
+</html>

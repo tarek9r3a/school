@@ -216,15 +216,12 @@ canvas.addEventListener('mousemove', e => {
             drawArrow(dragStart.x, dragStart.y, mouseX, mouseY, '#fff');
     }
 
-    if (!holdTimer) {
-        holdTimer = setTimeout(() => {
-            const logical = toLogical(mouseX, mouseY);
-            coordDisplay.textContent = `الإحداثيات: (${logical.x}, ${logical.y})`;
-            coordDisplay.style.display = 'block';
-            coordDisplay.style.left = `${e.pageX + 15}px`;
-            coordDisplay.style.top = `${e.pageY + 15}px`;
-        }, 300);
-    }
+    // عرض الإحداثيات مباشرة بدون تأخير
+    const logical = toLogical(mouseX, mouseY);
+    coordDisplay.textContent = `الإحداثيات: (${logical.x}, ${logical.y})`;
+    coordDisplay.style.display = 'block';
+    coordDisplay.style.left = `${e.pageX + 15}px`;
+    coordDisplay.style.top = `${e.pageY + 15}px`;
 });
 
 canvas.addEventListener('mouseup', () => {
