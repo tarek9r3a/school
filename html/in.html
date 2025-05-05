@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رسم أشعة ونقاط</title>
+    <link rel="stylesheet" href="../style/in.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/earlyaccess/droidarabickufi.css" rel="stylesheet">
+</head>
+<body>
+    <!-- الهيدر -->
+    <header>
+    <a href="../html/end.html" class="logo">
+            <img class="logoimage" src="../attchments/icoo.png" alt="الشعار">
+            <h5 class="logotext">ثانوية محمد<br>لامين دباغين</h5>
+        </a>
+        
+        <nav class="navi">
+            <a href="./idnex.html"><strong>الأساسية</strong></a>
+            <a href="./sci.html"><strong>علومها</strong></a>
+            <a href="./minds.html"><strong>اهم العلماء</strong></a>
+        </nav>
+        
+        <div class="tools">
+            <div class="dropdown">
+                <button class="dropbtn">الادوات!</button>
+                <div class="dropdown-content">
+                    <a href="./fun.html">رسام الدوال</a>
+                    <a href="./cal.html">الة حاسبة علمية</a>
+                    <a href="#">رسام الاشعة</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- المحتوى الرئيسي -->
+    <main class="main-content">
+        <!-- قسم الدليل (اليمين) -->
+        <div class="gide">
+            <div class="gides">
+            <h2>دليل الاستخدام</h2>
+            <p>رسام الأشعة أداة متقدمة تمكنك من:</p>
+            <ul>
+                <li>رسم النقاط بالنقر المباشر</li>
+                <li>إنشاء أشعة بالسحب بين النقاط</li>
+                <li>تخصيص الألوان لكل شعاع</li>
+            </ul>
+            </div>
+                            <div class="coordinates-list">
+            <h2>قائمة الإحداثيات الحالية:</h2>
+            <div id="arrowsCoordinates" class="coordinates-container"></div>
+        </div>
+
+        </div>
+
+        <!-- قسم الرسم (الوسط) -->
+        <div class="print">
+            <div class="info">انقر لإضافة نقطة — اسحب لرسم شعاع</div>
+            <div id="coordDisplay" class="coords"></div>
+            <canvas id="myCanvas" width="600" height="600"></canvas>
+        </div>
+
+        <!-- قسم الإجراءات (اليسار) -->
+        <div class="do" >
+    <h2>خيارات الرسم</h2>
+    <div class="controls" >
+        <button class="clear-btn">مسح جميع الأشعة</button>
+                 تنويه: هذا الزر يحذف فقط الاشعة حيث تبقى جميع النقط المرسومة سابقا
+
+                <button class="clear-points-btn">مسح جميع النقاط</button>
+                تنويه: هذا الزر يحذف الاشعة و النقاط جميعها حيث اذا حذفت النقاط لاتبقى اشعة وهذا هو الصحيح في الرياضيات
+        <div class="control-group">
+            <label>لون النقاط:</label>
+            <div class="pointcolor">
+            <input type="color" id="pointColor" value="#f8f9fa">
+                        تنويه:هذا الخيار يغير الوان جميع النقاط في المعلم نعتذر حيث حاليا لا يمكن تغير لون نقطة واحدة لعدم اكتمال المشروع بشكل كامل
+
+            </div>
+        </div>
+        
+
+    </div>
+        </div>
+    </main>
+    <!-- السكريبتات -->
+    <script src="../scripts/in.js"></script>
+</body>
+</html>

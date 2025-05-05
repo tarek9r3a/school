@@ -94,35 +94,111 @@ function updateFunctionsList() {
         const li = document.createElement('li');
         li.className = 'function-item';
         
-        const leftDiv = document.createElement('div');
-        leftDiv.style.display = 'flex';
-        leftDiv.style.alignItems = 'center';
-
-        const colorBox = document.createElement('div');
-        colorBox.className = 'color-box';
-        colorBox.style.backgroundColor = func.color;
+        // عنصر اختيار اللون
+        const colorPicker = document.createElement('div');
+        colorPicker.className = 'color-picker-container';
         
-        const functionText = document.createElement('span');
-        functionText.className = 'function-text';
-        functionText.style.fontFamily = "'Cal Sans', sans-serif"
-                functionText.style.fontSize = "20px"
-                                functionText.style.textAlign = "center"
-
-        functionText.textContent = `y  =  ${func.equation}`;
+        const colorInput = document.createElement('input');
+        colorInput.type = 'color';
+        colorInput.value = func.color;
+        colorInput.className = 'color-input';
         
-        leftDiv.appendChild(colorBox);
-        leftDiv.appendChild(functionText);
-
-const deleteBtn = document.createElement('button');
-deleteBtn.className = 'delete-btn';
-deleteBtn.innerHTML = "<i class='bx bx-x-circle'></i>";
-deleteBtn.onclick = () => removeFunction(index);
+        const colorPreview = document.createElement('div');
+        colorPreview.className = 'color-preview';
+        colorPreview.style.backgroundColor = func.color;
         
-        li.appendChild(leftDiv);
+        colorInput.addEventListener('input', (e) => {
+            func.color = e.target.value;
+            colorPreview.style.backgroundColor = e.target.value;
+            updatePlot();
+        });
+        
+        colorPicker.appendChild(colorInput);
+        colorPicker.appendChild(colorPreview);
+        
+        // نص الدالة
+        const funcText = document.createElement('span');
+        funcText.className = 'function-text';
+        funcText.textContent = `y = ${func.equation}`;
+        
+        // زر الحذف
+        const deleteBtn = document.createElement('button');
+        deleteBtn.className = 'delete-btn';
+        deleteBtn.innerHTML = "<i class='bx bx-x-circle'></i>";
+        deleteBtn.onclick = () => removeFunction(index);
+        
+        // تجميع العناصر
+        li.appendChild(colorPicker);
+        li.appendChild(funcText);
         li.appendChild(deleteBtn);
+        
         listElement.appendChild(li);
     });
 }
+
+// الأنماط المطلوبة
+const styles = `
+.color-picker-container {
+    position: relative;
+    display: inline-block;
+    margin-left: 15px;
+}
+
+.color-input {
+    opacity: 0;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.color-preview {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+.color-preview:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(0,123,255,0.3);
+}
+
+.delete-btn {
+    background: transparent;
+    border: none;
+    color: #ff4444;
+    font-size: 1.9em;
+    cursor: pointer;
+    margin-left: 15px;
+    transition: transform 0.3s ease;
+}
+
+.delete-btn:hover {
+    transform: scale(1.2);
+}
+
+.function-item {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    margin: 8px 0;
+    background: rgba(255,255,255,0.05);
+    border-radius: 10px;
+    transition: background 0.3s ease;
+}
+
+.function-item:hover {
+    background: rgba(255,255,255,0.1);
+}
+`;
+
+// إضافة الأنماط تلقائيًا
+const styleTag = document.createElement('style');
+styleTag.textContent = styles;
+document.head.appendChild(styleTag);
 
 function removeFunction(index) {
     if (index >= 0 && index < functions.length) {

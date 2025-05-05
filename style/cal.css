@@ -83,7 +83,7 @@ header {
 .navi a:hover:after {
   transform: scaleX(1);
   transform-origin: left;
-  background-color: black;
+  background-color: rgb(255, 255, 255);
 }
 .main-content {
   width: 100%;

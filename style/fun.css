@@ -31,6 +31,7 @@ body {
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
+  justify-content: center;
   align-items: center;
   color: var(--white);
 }
@@ -94,7 +95,7 @@ header {
 .navi a:hover:after {
   transform: scaleX(1);
   transform-origin: left;
-  background-color: black;
+  background-color: rgb(255, 255, 255);
 }
   .navi a[href="#"] {
     background: rgba(100, 98, 98, 0.671);
@@ -106,10 +107,11 @@ header {
 
 /* المحتوى الرئيسي */
 .main-content {
+  display: flex;
+  align-items: center;
   width: 100%;
   height: 100vh;  /* التأكد من أن المحتوى يحتل المساحة الكاملة للعرض */
-    margin: 150px 0 auto;
-    margin-bottom: 150px;
+    margin: 80px 0 auto;
   padding: 20px;
   display: flex;
   justify-content: center;
@@ -216,6 +218,8 @@ justify-content: center;
   width: calc(110% - 30px); /* لأن padding = 15px من كل جهة */
   height: calc(100% - 30px);
   min-height: 400px; 
+    min-width: fit-content;
+min-height: fit-content;
 }
 
 @media (max-width: 768px) {
@@ -409,4 +413,105 @@ justify-content: center;
   flex-direction: column;
   justify-content: flex-start;
 
+}
+
+
+
+
+/* أضف هذه الأنماط الجديدة */
+.color-input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 30px;
+  height: 30px;
+  border: 2px solid var(--white);
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.color-input::-webkit-color-swatch {
+  border: none;
+  border-radius: 50%;
+  padding: 0;
+}
+
+.color-input::-moz-color-swatch {
+  border: none;
+  border-radius: 50%;
+  padding: 0;
+}
+
+
+
+
+.color-input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--white);
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.color-input::before {
+  content: '🎨';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  font-size: 18px;
+}
+
+.color-input:hover {
+  transform: scale(1.1) rotate(15deg);
+  box-shadow: 0 6px 20px rgba(0, 123, 255, 0.3);
+}
+
+.color-input:hover::before {
+  opacity: 0.8;
+}
+
+.color-input:active {
+  transform: scale(0.95);
+}
+
+.color-input::-webkit-color-swatch {
+  border: none;
+  border-radius: 50%;
+  padding: 0;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.color-input::-moz-color-swatch {
+  border: none;
+  border-radius: 50%;
+  padding: 0;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* تأثير إشعاعي عند التركيز */
+.color-input:focus {
+  outline: none;
+  animation: colorGlow 1.5s infinite alternate;
+}
+
+@keyframes colorGlow {
+  from {
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
+  }
+  to {
+    box-shadow: 0 0 20px rgba(0, 123, 255, 0.6);
+  }
 }

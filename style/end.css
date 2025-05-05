@@ -1,0 +1,42 @@
+@import url("https://fonts.googleapis.com/earlyaccess/droidarabickufi.css");
+@import url('https://fonts.googleapis.com/css2?family=Cal+Sans&display=swap');
+
+body{
+    display: flex;
+    flex-direction: column;
+    direction: rtl;
+    align-items: center;
+    justify-content: center;
+  font-family: 'Droid Arabic Kufi', sans-serif;
+   background: #2A7B9B;
+background: linear-gradient(90deg,rgba(42, 123, 155, 1) 0%, rgba(87, 199, 133, 1) 50%, rgba(237, 221, 83, 1) 100%);
+
+}
+h3{
+font-size: 40px;
+background: rgba(250, 247, 247, 0.623);
+padding: 5px;
+border-radius: 20px;
+}
+.bb{
+    display: flex;
+    align-items: center;
+    width: 800px;
+    border: white 2px solid;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.658);
+    box-shadow: 0 0 40px white;
+    border-radius: 20px;
+    justify-content: center;
+    text-align: center;
+}
+
+.end{
+    margin-top: 200px;
+    text-align: center;
+    width: 1200px;
+    font-size: 15px;
+    box-shadow: 0 0 40px red;
+    border-radius: 20px;
+    background: rgba(255, 0, 0, 0.733);
+}
